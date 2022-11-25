@@ -12,6 +12,7 @@ bigqueryClient = bigquery.Client()
 
 #UPDATE TABLE
 def update_table(df4):
+
     
     tableRef = bigqueryClient.dataset("Ikea_tweets").table("Ikea_hackdays_tb")
     bigqueryJob = bigqueryClient.load_table_from_dataframe(df4, tableRef)
