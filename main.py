@@ -2,6 +2,7 @@
 import tweepy as tw
 import pandas as pd
 import os
+import datetime
 from data_integration import update_table
 from dotenv import load_dotenv
 from access_secrets import access_secret
@@ -39,19 +40,20 @@ def twitter_scrapper(request):
             for hashtag in tweet.entities["hashtags"]:
                 hashtags.append(hashtag["text"])
             text = api.get_status(id=tweet.id, tweet_mode='extended').full_text
-        except:
-            pass
+        except Exception as ex:
+            raise ex
         tweets_df = pd.concat([tweets_df,pd.DataFrame.from_records([{'user_name': tweet.user.name, 
                                                 'user_location': tweet.user.location,\
                                                 'user_description': tweet.user.description,
                                                 'user_verified': tweet.user.verified,
-                                                'date': tweet.created_at,
+                                                'created_date': tweet.created_at,
                                                 'text': text, 
                                                 'hashtags': ' '.join(str(e) for e in hashtags),
-                                                'source': tweet.source}])])
+                                                'source': tweet.source,
+                                                'insertion_date': datetime.datetime.now()}])])
         tweets_df = tweets_df.reset_index(drop=True)
 
 
 
     update_table(tweets_df)
-    return
+    return "success"
