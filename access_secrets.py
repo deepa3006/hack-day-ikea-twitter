@@ -4,6 +4,7 @@ from google.cloud import secretmanager
 
 def access_secret():
 
+
     client = secretmanager.SecretManagerServiceClient()
     secret_name = os.getenv("SECRET_NAME", "")
     project_id =  os.getenv("PROJECT_ID", "")
