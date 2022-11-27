@@ -5,7 +5,7 @@ Cloud Function to collect tweets related to IKAE using twitter API
 
 ![image](https://user-images.githubusercontent.com/30334967/204101587-428e3689-3b74-47a9-883a-3e8c5ab06468.png)
 
-Here is a cloud function that can hit twitter API and collect the tweets related to IKEA and save in a big query database. 
+Here is a cloud function that can hit twitter API and collect the tweets related to IKEA and save in a Biggqery. 
 To deploy just change the associated WIF and service account and run the workflow
 
 # To-Do
