@@ -11,4 +11,4 @@ To deploy just change the associated WIF and service account and run the workflo
 # To-Do
 
 1. Write Unit Test
-2. Make use of Terraform to deploy the infra
+2. Make use of Terraform to deploy the infrastructure
