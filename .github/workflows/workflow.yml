@@ -25,10 +25,10 @@ jobs:
       with:
         name: 'twitter_scrapper'
         runtime: 'python310'
-        #source_dir: '.'
+        source_dir: '.'
         service_account_email: 'cloud-function-service-account@utility-cumulus-372111.iam.gserviceaccount.com'
         env_vars: SECRET_NAME=${{env.SECRET_NAME}},PROJECT_ID=${{env.PROJECT_ID}}
-        #timeout: '300s'
+        timeout: '300s'
     # Example of using the output
     - id: 'output'
       run: 'echo "${{ steps.deploy.outputs.url }}"'
