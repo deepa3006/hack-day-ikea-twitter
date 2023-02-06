@@ -14,21 +14,21 @@ jobs:
     - id: checkout
       uses: actions/checkout@v3
 
-    - id: auth
-      uses: google-github-actions/auth@v0
+    - id: 'auth'
+      uses: 'google-github-actions/auth@v1'
       with:
         workload_identity_provider: 'projects/979008872586/locations/global/workloadIdentityPools/github-actions/providers/bq-load'
         service_account: 'wif-github@utility-cumulus-372111.iam.gserviceaccount.com'
 
     - id: 'deploy'
-      uses: 'google-github-actions/deploy-cloud-functions@v0'
+      uses: 'google-github-actions/deploy-cloud-functions@v1'
       with:
         name: 'twitter_scrapper'
         runtime: 'python310'
-        source_dir: '.'
+        #source_dir: '.'
         service_account_email: 'cloud-function-service-account@utility-cumulus-372111.iam.gserviceaccount.com'
         env_vars: SECRET_NAME=${{env.SECRET_NAME}},PROJECT_ID=${{env.PROJECT_ID}}
-        timeout: '300s'
+        #timeout: '300s'
     # Example of using the output
     - id: 'output'
       run: 'echo "${{ steps.deploy.outputs.url }}"'
