@@ -43,7 +43,7 @@ def twitter_scrapper(request):
         except Exception as ex:
             raise ex
         tweets_df = pd.concat([tweets_df,pd.DataFrame.from_records([{'user_name': tweet.user.name, 
-                                                'user_location': tweet.user.location,\
+                                                'user_location': tweet.user.location,
                                                 'user_description': tweet.user.description,
                                                 #'user_verified': tweet.user.verified,
                                                 #'created_date': tweet.created_at,
