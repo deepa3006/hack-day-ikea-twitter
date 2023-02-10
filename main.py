@@ -46,11 +46,11 @@ def twitter_scrapper(request):
                                                 'user_location': tweet.user.location,
                                                 'user_description': tweet.user.description,
                                                 #'user_verified': tweet.user.verified,
-                                                #'created_date': tweet.created_at,
+                                                'created_date': tweet.created_at,
                                                 'text': text, 
                                                 'hashtags': ' '.join(str(e) for e in hashtags),
-                                                'source': tweet.source
-                                                #'insertion_date': datetime.datetime.now()
+                                                'source': tweet.source,
+                                                'insertion_date': datetime.datetime.now()
                                                 }])])
         tweets_df = tweets_df.reset_index(drop=True)
     print("tweets_df is ", tweets_df.columns)    
