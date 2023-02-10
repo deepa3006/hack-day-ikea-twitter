@@ -52,7 +52,7 @@ def twitter_scrapper(request):
                                                 'source': tweet.source,
                                                 'insertion_date': datetime.datetime.now()}])])
         tweets_df = tweets_df.reset_index(drop=True)
-
+    print("tweets_df is ", tweets_df.columns)    
 
 
     update_table(tweets_df)
